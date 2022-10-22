@@ -1,0 +1,224 @@
+/* .......................................................................
+  Sidebar content css
+...........................................................................*/
+
+.sidebar {
+  /* height: 100vh ; */
+  position: sticky;
+  top: 0;
+  /* background-color: rgb(154, 129, 18); */
+}
+
+.sidebar .navbnar .containers {
+  color: white;
+  display: flex;
+  width: 100%;
+  /* position: fixed; */
+  scroll-behavior: auto;
+  z-index: 1;
+  /* background-color: darkgreen; */
+  padding: 13px 20px 4px 20px;
+}
+
+.sidebarWrapper {
+  /* padding: 20px; */
+  margin-top: 8%;
+  color: rgb(161, 160, 160);
+}
+
+.sidebarMenu {
+  margin-bottom: 10px;
+}
+
+.sidebarTitle {
+  font-size: 13px;
+  color: rgb(234, 234, 234);
+  padding-left: 20px;
+}
+
+.sidebarList {
+  width: 100%;
+  list-style: none;
+  padding-left: 0px;
+}
+.link{
+  text-decoration: none;
+  color: rgb(161, 160, 160);
+}
+.link:hover{
+  text-decoration: none;
+}
+
+.sidebarListItem {
+  width: 100%;
+  padding: 10px 0 10px 35px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebarListItem.active,
+.sidebarListItem:hover {
+  padding-left: 25px;
+  /* background-color: rgb(246, 167, 10); */
+  background-color: rgb(9, 12, 18);
+  border-left: 4px solid green;
+}
+
+.sidebarIcon {
+  margin-right: 5px;
+  font-size: 20px !important;
+}
+
+/* .......................................................................
+  Dashboard css
+.........................................................................*/
+
+.fluid-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow-y: scroll;
+}
+
+/*  remove scrollbar in safari*/
+.superContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.superContainer {
+  /* remove scrollbar in firefox */
+  scrollbar-width: none;
+  /* remove scrollbzr in ms-edge and explorer */
+  -ms-overflow-style: none;
+}
+
+.fluid-container .superC {
+  width: inherit;
+}
+
+.fluid-container .superC .content {
+  width: calc(100% - 240px);
+  display: flex;
+  flex-grow: 1;
+  float: right;
+  flex-direction: column;
+}
+
+/* Top Bar container css */
+.fluid-container .superC .header {
+  width: inherit;
+  position: fixed;
+  top: 0;
+  height: fit-content;
+  z-index: 1;
+  box-shadow: 1px 0.9px 4px 1px rgba(24, 22, 22, 0.14), 1px 0.8px 2px 1px rgba(24, 22, 22, 0.34) !important;
+}
+
+/* SideBar container css */
+.fluid-container .superC .sidebar_container {
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow-y: scroll;
+  /* transition: all 3s ease; */
+  background-color: rgb(15, 28, 47);
+  box-shadow: 0 0.9px 6px 1px rgba(24, 22, 22, 0.14), 0 0.8px 6px 1px rgba(24, 22, 22, 0.34) !important;
+}
+
+.fluid-container .superC .sidebar_container::-webkit-scrollbar {
+  display: none;
+}
+.fluid-container .superC .sidebar_container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Dashboard content container css */
+.fluid-container .superC .content_container {
+  /* color: white; */
+  height: auto;
+  padding: 6% 3% 3% 3%;
+  background-color: whitesmoke;
+  /* transition: all 3s ease; */
+}
+
+/* Footer container css */
+.fluid-container .superC .footer {
+  height: 8vh;
+  position: relative;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(214, 214, 222); */
+}
+
+/* Header and Content container css */
+
+@media only screen and (max-width: 767px) {
+
+  .fluid-container .superC .content .content_container {
+    padding-top: 20%;
+  }
+
+  .fluid-container .superC .sidebar_container {
+    display: none;
+    z-index: 1;
+    /* overflow-y: scroll; */
+    /* overflow-x: hidden; */
+  }
+
+  /* .sidebarWrapper {
+    overflow-y: scroll;
+  } */
+
+  .fluid-container .superC .content {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1200px) {
+
+  .fluid-container .superC .sidebar_container {
+    display: none;
+    z-index: 1;
+  }
+
+  .fluid-container .superC .content {
+    width: 100%;
+    /* float: right;  */
+  }
+
+  .fluid-container .superC .content .content_container {
+    padding-top: 10%;
+  }
+}
+
+/* Box-shadow */
+.BoxShadow {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 1px, rgba(0, 0, 0, 0.26) 0px 1px 1px;
+  /* box-shadow: 0 1px 8px 0.8px rgba(24, 22, 22, 0.14), 0 1px 8px 0.8px rgba(39, 36, 36, 0.14) !important; */
+}
+
+
+/* .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+} */
+
+.aboutContainer{
+  width: 100%;
+  height: 100%;
+  /* background-color: darkorange; */
+}
+.contactContainer{
+  width: 100%;
+  height: 100%;
+  /* background-color: darkorange; */
+
+}
