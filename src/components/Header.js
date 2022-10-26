@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
@@ -15,25 +15,9 @@ import Logout from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 
 
-const Header = ({close, opens}) => {
+const Header = ({toggle}) => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
-
- var nav=true;
-
-const openss = () => {
-  opens();
-  nav=true;
-}
-
-const closes = () => {
-  close();
-  nav=false;
-}
-
-  const toggleNav = () => {
-    nav ? closes() : openss();
-  }
 
   const open = Boolean(anchorEl);
 
@@ -48,9 +32,8 @@ const closes = () => {
     <div className='navbar px-3' >
       <React.Fragment>
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-        <MenuIcon fontSize='large'  onClick={()=>toggleNav()} />
-          <Typography sx={{ paddingLeft: 3, flexGrow: 1 }} > Dashboard / Home  </Typography>
-         
+        <MenuIcon fontSize='large'  onClick={()=>toggle()} />
+          <Typography sx={{ paddingLeft: 3, flexGrow: 1 }} />
           <div className="user d-flex notifications-popup ">
             <Tooltip title="Account settings">
               <IconButton sx={{ float: 'right' }}
@@ -60,7 +43,7 @@ const closes = () => {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
               >
-                <Avatar sx={{ width: 33, height: 33 }} alt="Allen Mosha" src="/broken-image.jpg" />
+                <Avatar sx={{ width: 33, height: 33 }} alt="Allen Mosha" src="../assets/chatIcon2.png" />
               </IconButton>
             </Tooltip>
           </div>
@@ -115,10 +98,12 @@ const closes = () => {
             Settings
           </MenuItem>
           <MenuItem>
+          <Link to='/'>
             <ListItemIcon>
               <Logout fontSize="small" />
             </ListItemIcon>
             Logout
+            </Link>
           </MenuItem>
         </Menu>
       </React.Fragment>

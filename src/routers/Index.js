@@ -5,19 +5,20 @@ import StartView from '../views/StartView';
 import Dashboard from '../views/Dashboard';
 import About from '../views/About';
 import Contact from '../views/Contact';
+import LandingPage from '../views/LandingPage';
 
 const Routing = ()=>{
     return(
         <Router>
-            
-            <Dashboard>
             <Routes>
-                {/* <Route exact path='/' element={<Dashboard />} /> */}
-                <Route exact path='/startView' element={<StartView />} />
-                <Route exact path='/about' element={<About />}/>
-                <Route exact path='/contact' element={<Contact/>}/>
+                <Route  path='/' element={<LandingPage/>}/>
+                <Route  path='/dashboard' element={<Dashboard />} >
+                <Route  index  element={<StartView />} />
+                <Route  path='/dashboard/startView' element={<StartView />} />
+                <Route  path='/dashboard/about' element={<About />}/>
+                <Route  path='/dashboard/contact' element={<Contact/>}/>
+                </Route>
             </Routes>
-            </Dashboard>
         </Router>
     );
 }

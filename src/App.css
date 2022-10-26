@@ -1,3 +1,15 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.link, .link:hover {
+  text-decoration: none;
+  color: rgb(161, 160, 160);
+}
+
 /* .......................................................................
   Sidebar content css
 ...........................................................................*/
@@ -13,17 +25,33 @@
   color: white;
   display: flex;
   width: 100%;
-  /* position: fixed; */
-  scroll-behavior: auto;
   z-index: 1;
-  /* background-color: darkgreen; */
+  background-color: darkgreen;
   padding: 13px 20px 4px 20px;
 }
+
+.sidebar .navbnar .containers .user {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* .sidebar .navbnar .containers .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(75, 75, 75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6%;
+} */
 
 .sidebarWrapper {
   /* padding: 20px; */
   margin-top: 8%;
   color: rgb(161, 160, 160);
+  /* width: auto; */
+  /* height: 100vh; */
 }
 
 .sidebarMenu {
@@ -33,7 +61,7 @@
 .sidebarTitle {
   font-size: 13px;
   color: rgb(234, 234, 234);
-  padding-left: 20px;
+  padding-left: 30px;
 }
 
 .sidebarList {
@@ -41,17 +69,11 @@
   list-style: none;
   padding-left: 0px;
 }
-.link{
-  text-decoration: none;
-  color: rgb(161, 160, 160);
-}
-.link:hover{
-  text-decoration: none;
-}
+
 
 .sidebarListItem {
   width: 100%;
-  padding: 10px 0 10px 35px;
+  padding: 10px 0 10px 45px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -70,6 +92,9 @@
   margin-right: 5px;
   font-size: 20px !important;
 }
+
+
+
 
 /* .......................................................................
   Dashboard css
@@ -99,33 +124,44 @@
 }
 
 .fluid-container .superC .content {
-  width: calc(100% - 240px);
+  width: calc(100% - 0px);
   display: flex;
   flex-grow: 1;
   float: right;
+  position: relative;
   flex-direction: column;
+  transition: all 0.5s ease-in-out;
 }
 
 /* Top Bar container css */
-.fluid-container .superC .header {
-  width: inherit;
-  position: fixed;
+.fluid-container .superC .content .header {
+  width: 100%;
+  position: sticky;
   top: 0;
   height: fit-content;
   z-index: 1;
   box-shadow: 1px 0.9px 4px 1px rgba(24, 22, 22, 0.14), 1px 0.8px 2px 1px rgba(24, 22, 22, 0.34) !important;
 }
 
+.fluid-container .superC .content .urlBar{
+  height: 7vh;
+  display: flex;
+  padding-left: 1%;
+  align-items: center;
+  background-color: rgb(172, 175, 172);
+}
+
 /* SideBar container css */
 .fluid-container .superC .sidebar_container {
-  width: 240px;
+  width: 0;
   height: 100vh;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 0px;
   z-index: 1;
+  opacity: 0;
   overflow-y: scroll;
-  /* transition: all 3s ease; */
+  transition: all 0.5s ease-in-out;
   background-color: rgb(15, 28, 47);
   box-shadow: 0 0.9px 6px 1px rgba(24, 22, 22, 0.14), 0 0.8px 6px 1px rgba(24, 22, 22, 0.34) !important;
 }
@@ -133,6 +169,7 @@
 .fluid-container .superC .sidebar_container::-webkit-scrollbar {
   display: none;
 }
+
 .fluid-container .superC .sidebar_container {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -142,7 +179,7 @@
 .fluid-container .superC .content_container {
   /* color: white; */
   height: auto;
-  padding: 6% 3% 3% 3%;
+  padding: 1% 3% 3% 3%;
   background-color: whitesmoke;
   /* transition: all 3s ease; */
 }
@@ -150,58 +187,84 @@
 /* Footer container css */
 .fluid-container .superC .footer {
   height: 8vh;
-  position: relative;
-  bottom: 0;
+  /* position: absolute; */
+  /* bottom: 0; */
   display: flex;
   justify-content: center;
   align-items: center;
   /* background-color: rgb(214, 214, 222); */
 }
 
-/* Header and Content container css */
+.fluid-container .superC .sidebar_container.active {
+  width: 240px;
+  opacity: 1;
+}
 
+.fluid-container .superC .sidebar_container.active~.content {
+  width: calc(100% - 240px);
+}
+
+/* Header and Content container css */
 @media only screen and (max-width: 767px) {
 
   .fluid-container .superC .content .content_container {
-    padding-top: 20%;
+    padding-top: 1%;
   }
 
   .fluid-container .superC .sidebar_container {
-    display: none;
+    width: 240px;
+    opacity: 1;
     z-index: 1;
-    /* overflow-y: scroll; */
-    /* overflow-x: hidden; */
   }
 
-  /* .sidebarWrapper {
-    overflow-y: scroll;
-  } */
-
   .fluid-container .superC .content {
-    width: 100%;
+    width: calc(100% - 240px);
+  }
+
+  .fluid-container .superC .sidebar_container.active {
+    width: 0;
+    opacity: 0;
+  }
+
+  .fluid-container .superC .sidebar_container.active~.content {
+    width: calc(100% - 0px);
+  }
+
+  .fluid-container .superC .content .content_container .urlBar{
+    height: 8vh;
   }
 }
 
 @media only screen and (min-width: 767px) and (max-width: 1200px) {
 
   .fluid-container .superC .sidebar_container {
-    display: none;
+    width: 240px;
+    opacity: 1;
     z-index: 1;
   }
 
   .fluid-container .superC .content {
-    width: 100%;
-    /* float: right;  */
+    width: calc(100% - 240px);
   }
 
   .fluid-container .superC .content .content_container {
-    padding-top: 10%;
+    padding-top: 1%;
+  }
+
+  .fluid-container .superC .sidebar_container.active {
+    width: 0;
+    opacity: 0;
+  }
+
+  .fluid-container .superC .sidebar_container.active~.content {
+    width: calc(100% - 0px);
   }
 }
 
 /* Box-shadow */
 .BoxShadow {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 1px, rgba(0, 0, 0, 0.26) 0px 1px 1px;
+  box-shadow: 0px 0.8px 4px 1px rgba(24, 22, 22, 0.14), 0px 0.8px 2px 1px rgba(24, 22, 22, 0.34) !important;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 1px, rgba(0, 0, 0, 0.26) 0px 1px 1px; */
   /* box-shadow: 0 1px 8px 0.8px rgba(24, 22, 22, 0.14), 0 1px 8px 0.8px rgba(39, 36, 36, 0.14) !important; */
 }
 
@@ -211,14 +274,82 @@
   -webkit-tap-highlight-color: transparent;
 } */
 
-.aboutContainer{
+.aboutContainer {
   width: 100%;
   height: 100%;
   /* background-color: darkorange; */
 }
-.contactContainer{
+
+.contactContainer {
   width: 100%;
   height: 100%;
   /* background-color: darkorange; */
 
+}
+
+/* ..................................................................................
+    landing page css
+..................................................................................... */
+
+.landingContainer{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.landingContainer .fluid  .header .navbar .avatarContainer{
+  display: flex;
+  flex-grow: 1;
+  padding: 0 1% 0 1%;
+}
+
+.landingContainer .fluid  .header .navbar .avatarContainer .brandContainer{
+  flex-grow: 1;
+}
+
+.landingContainer .fluid  .header .navbar .avatarContainer .navItems{
+  width: 20%;
+}
+
+.landingContainer .fluid  .header .navbar .avatarContainer .brandContainer .brandname{
+font-size: 20px;
+font-weight: 800;
+}
+
+.landingContainer .fluid  .header .navbar .avatarContainer .navItems .list{
+  list-style: none;
+}
+.landingContainer .fluid  .header .navbar .avatarContainer .navItems .list .listItems{
+ float: left;
+ padding-right: 5%;
+}
+
+.landingContainer .fluid  .header .content{
+  height: 75vh;
+  padding-top: 1%;
+}
+
+.landingContainer .fluid .Description{
+  height: 75vh;
+  padding-top: 1%;
+  background-color: whitesmoke;
+}
+
+.landingContainer .fluid .About{
+  height: 75vh;
+  padding-top: 1%;
+}
+
+.landingContainer .fluid .Contacts{
+  height: 75vh;
+  padding-top: 1%;
+ background-color: whitesmoke;
+}
+
+.landingContainer .fluid .footer{
+  color: white;
+  height: 30vh;
+  padding-top: 1%;
+  background-color: rgb(37, 54, 91);
 }
