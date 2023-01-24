@@ -26,7 +26,7 @@
   display: flex;
   width: 100%;
   z-index: 1;
-  background-color: darkgreen;
+  background-color: rgb(30, 69, 75);
   padding: 13px 20px 4px 20px;
 }
 
@@ -80,7 +80,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.sidebarListItem.active,
+.sidebarListItem:active,
 .sidebarListItem:hover {
   padding-left: 25px;
   /* background-color: rgb(246, 167, 10); */
@@ -108,11 +108,11 @@
 }
 
 /*  remove scrollbar in safari*/
-.superContainer::-webkit-scrollbar {
+.superContainer::-webkit-scrollbar, .sidebar_container::-webkit-scrollbar {
   display: none;
 }
 
-.superContainer {
+.superContainer, .sidebar_container {
   /* remove scrollbar in firefox */
   scrollbar-width: none;
   /* remove scrollbzr in ms-edge and explorer */
@@ -144,11 +144,13 @@
 }
 
 .fluid-container .superC .content .urlBar{
-  height: 7vh;
+  color: black;
+  height: 55px;
   display: flex;
   padding-left: 1%;
+  font-size: 1.1em;
   align-items: center;
-  background-color: rgb(172, 175, 172);
+  background-color: rgb(217, 218, 217);
 }
 
 /* SideBar container css */
@@ -162,17 +164,14 @@
   opacity: 0;
   overflow-y: scroll;
   transition: all 0.5s ease-in-out;
-  background-color: rgb(15, 28, 47);
-  box-shadow: 0 0.9px 6px 1px rgba(24, 22, 22, 0.14), 0 0.8px 6px 1px rgba(24, 22, 22, 0.34) !important;
-}
-
-.fluid-container .superC .sidebar_container::-webkit-scrollbar {
-  display: none;
-}
-
-.fluid-container .superC .sidebar_container {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  /* background-color: rgb(15, 28, 47); */
+  background-color: rgb(30, 69, 75);
+  /*backdrop-filter: blur(90px);
+  */box-shadow: 0 0.9px 6px 1px rgba(24, 22, 22, 0.14), 0 0.8px 6px 1px rgba(24, 22, 22, 0.34) !important;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 }
 
 /* Dashboard content container css */
@@ -187,8 +186,6 @@
 /* Footer container css */
 .fluid-container .superC .footer {
   height: 8vh;
-  /* position: absolute; */
-  /* bottom: 0; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -204,67 +201,14 @@
   width: calc(100% - 240px);
 }
 
-/* Header and Content container css */
-@media only screen and (max-width: 767px) {
 
-  .fluid-container .superC .content .content_container {
-    padding-top: 1%;
-  }
-
-  .fluid-container .superC .sidebar_container {
-    width: 240px;
-    opacity: 1;
-    z-index: 1;
-  }
-
-  .fluid-container .superC .content {
-    width: calc(100% - 240px);
-  }
-
-  .fluid-container .superC .sidebar_container.active {
-    width: 0;
-    opacity: 0;
-  }
-
-  .fluid-container .superC .sidebar_container.active~.content {
-    width: calc(100% - 0px);
-  }
-
-  .fluid-container .superC .content .content_container .urlBar{
-    height: 8vh;
-  }
-}
-
-@media only screen and (min-width: 767px) and (max-width: 1200px) {
-
-  .fluid-container .superC .sidebar_container {
-    width: 240px;
-    opacity: 1;
-    z-index: 1;
-  }
-
-  .fluid-container .superC .content {
-    width: calc(100% - 240px);
-  }
-
-  .fluid-container .superC .content .content_container {
-    padding-top: 1%;
-  }
-
-  .fluid-container .superC .sidebar_container.active {
-    width: 0;
-    opacity: 0;
-  }
-
-  .fluid-container .superC .sidebar_container.active~.content {
-    width: calc(100% - 0px);
-  }
-}
 
 /* Box-shadow */
 .BoxShadow {
-  box-shadow: 0px 0.8px 4px 1px rgba(24, 22, 22, 0.14), 0px 0.8px 2px 1px rgba(24, 22, 22, 0.34) !important;
+  background-color: white;
+  /* box-shadow: 0px 0.8px 4px 1px rgba(24, 22, 22, 0.14), 0px 0.8px 2px 1px rgba(24, 22, 22, 0.17) !important; */
   /* box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 1px, rgba(0, 0, 0, 0.26) 0px 1px 1px; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1.6px 1.6px, rgba(0, 0, 0, 0.26) 0px 1px 3px 0px;
   /* box-shadow: 0 1px 8px 0.8px rgba(24, 22, 22, 0.14), 0 1px 8px 0.8px rgba(39, 36, 36, 0.14) !important; */
 }
 
@@ -298,58 +242,223 @@
   overflow-x: hidden;
 }
 
-.landingContainer .fluid  .header .navbar .avatarContainer{
-  display: flex;
-  flex-grow: 1;
-  padding: 0 1% 0 1%;
+.landingContainer .fluid  .header{
+  background-image: url('../public/landingBg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.landingContainer .fluid  .header .navbar .avatarContainer .brandContainer{
-  flex-grow: 1;
+.landingContainer .fluid  .header .navbarr{
+  /* color: white; */
+  padding-top: 2%;
 }
 
-.landingContainer .fluid  .header .navbar .avatarContainer .navItems{
-  width: 20%;
+.landingContainer .fluid  .header .navbarr .navbar .container-fluid .navbar-brand .brandname{
+  /* color: rgb(18, 21, 146); */
+  font-weight: 900;
+  font-size: 24px;
+
 }
 
-.landingContainer .fluid  .header .navbar .avatarContainer .brandContainer .brandname{
-font-size: 20px;
-font-weight: 800;
+.landingContainer .fluid  .header .navbarr .navbar .container-fluid .logo{
+  margin-right: 12px;
 }
 
-.landingContainer .fluid  .header .navbar .avatarContainer .navItems .list{
-  list-style: none;
-}
-.landingContainer .fluid  .header .navbar .avatarContainer .navItems .list .listItems{
- float: left;
- padding-right: 5%;
+.landingContainer .fluid  .header .navbarr .navbar .container-fluid .collapse .navbar-nav .nav-item{
+  /* color: rgb(18, 21, 146); */
+  font-weight: 900;
 }
 
 .landingContainer .fluid  .header .content{
-  height: 75vh;
-  padding-top: 1%;
+  height: fit-content;
+}
+
+.landingContainer .fluid  .header .content .description{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em;
+  /* border: 1px solid green; */
+}
+
+.landingContainer .fluid  .header .content .description .head{
+  color: rgb(28, 68, 74);
+  font-weight: 900;
+  font-size: 4em;
+}
+
+.landingContainer .fluid  .header .content .description .btn{
+  color: white;
+  width: 150px;
+  border-radius: 20px;
+  /* background-color: rgb(46, 107, 116); */
+  margin: 4% 5% 3% 0;
+}
+.btn, button{
+  color: white;
+  background-color: rgb(46, 107, 116);
+}
+
+button:hover{
+  color: white !important;
+  background-color: rgb(40, 95, 103) !important;
+}
+
+.landingContainer .fluid  .header .content .description .btn .link{
+  color: white;
+  text-decoration: none;
+}
+
+.landingContainer .fluid  .header .content .pic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Enlargement animation */
+@keyframes enlarge{
+  0% {width: 90%; height: 90%;}
+  50% {width: 75%; height: 75%;}
+  100% {width: 90%; height: 90%;}
+}
+
+.landingContainer .fluid  .header .content .pic .image{
+  width: 75%;
+  height: 75%;
+  animation-name: enlarge;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+
 }
 
 .landingContainer .fluid .Description{
-  height: 75vh;
+  height: fit-content;
   padding-top: 1%;
   background-color: whitesmoke;
 }
 
 .landingContainer .fluid .About{
-  height: 75vh;
+  min-height: 30em ;
   padding-top: 1%;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.33) ,rgba(0, 0, 0, 0.467)), url('../public/landingBg3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* backdrop-filter: blur(90px); */
 }
 
 .landingContainer .fluid .Contacts{
-  height: 75vh;
+  height: fit-content;
   padding-top: 1%;
  background-color: whitesmoke;
 }
 
 .landingContainer .fluid .footer{
   color: white;
-  height: 30vh;
-  padding-top: 1%;
-  background-color: rgb(37, 54, 91);
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(37, 77, 111, 0.778);
+}
+
+
+/* .............................................................................................
+ Responsive css 
+................................................................................................*/
+@media only screen and (max-width: 767px) {
+
+  .fluid-container .superC .content .content_container {
+    padding-top: 1%;
+  }
+
+  .fluid-container .superC .sidebar_container {
+    width: 200px;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .fluid-container .superC .content {
+    width: calc(100% - 200px);
+  }
+
+  .fluid-container .superC .sidebar_container.active {
+    width: 0;
+    opacity: 0;
+  }
+
+  .fluid-container .superC .sidebar_container.active~.content {
+    width: calc(100% - 0px);
+    overflow-x: hidden;
+  }
+
+  .fluid-container .superC .content .content_container .urlBar{
+    height: 199px;
+  }
+
+  .landingContainer .fluid  .header .content .description .head{
+    font-size: 2.5em;
+  }
+
+  .landingContainer .fluid  .header{
+    background-size: contain;
+  }
+
+  .landingContainer .fluid  .header .content .pic {
+    padding: 5%;
+  }
+
+  .landingContainer .fluid  .header .content .pic .image{
+    width: 100%;
+    height: 100%;
+    animation-name: none;
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1200px) {
+
+  .fluid-container .superC .sidebar_container {
+    width: 240px;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .fluid-container .superC .content {
+    width: calc(100% - 240px);
+  }
+
+  .fluid-container .superC .content .content_container {
+    padding-top: 1%;
+  }
+
+  .fluid-container .superC .sidebar_container.active {
+    width: 0;
+    opacity: 0;
+  }
+
+  .fluid-container .superC .sidebar_container.active~.content {
+    width: calc(100% - 0px);
+  }
+
+  .landingContainer .fluid  .header .content .description .head{
+    font-weight: 900;
+    font-size: 3em;
+  }
+
+  .landingContainer .fluid  .header{
+    background-size: contain;
+  }
+  
+.landingContainer .fluid  .header .content .pic {
+  padding: 4%;
+}
+
+.landingContainer .fluid  .header .content .pic .image{
+  width: 100%;
+  height: 100%;
+  animation-name: none;
+}
 }

@@ -12,7 +12,7 @@ const Routing = ()=>{
         <Router>
             <Routes>
                 <Route  path='/' element={<LandingPage/>}/>
-                <Route  path='/dashboard' element={<Dashboard />} >
+                <Route  path='/dashboard/' element={<Dashboard />} >
                 <Route  index  element={<StartView />} />
                 <Route  path='/dashboard/startView' element={<StartView />} />
                 <Route  path='/dashboard/about' element={<About />}/>

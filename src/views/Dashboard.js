@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import React from 'react';
 import Footer from './../components/Footer';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 
 const Dashboard = (props) => {
@@ -12,6 +12,9 @@ const Dashboard = (props) => {
         var sidebar = document.getElementById('sidebar');
         sidebar.classList.toggle('active');
     }
+
+  const location = useLocation();
+
 
     return (
         <div className='dashContainer fluid-container'>
@@ -23,7 +26,7 @@ const Dashboard = (props) => {
                     <div className='header col-md-12  bg-light' id='header'>
                         <Header toggle={toggle} />
                     </div>
-                    <div className='urlBar '>Dashboard / Home </div>
+                    <div className='urlBar '> {location.pathname} </div>
                     <div className='content_container ' >
                         <Outlet />
                     </div>

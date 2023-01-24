@@ -14,6 +14,9 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 
+// profile picture
+import Allen from '../assets/Allen.webp';
+
 
 const Header = ({toggle}) => {
 
@@ -43,7 +46,7 @@ const Header = ({toggle}) => {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
               >
-                <Avatar sx={{ width: 33, height: 33 }} alt="Allen Mosha" src="../assets/chatIcon2.png" />
+                <Avatar sx={{ width: 33, height: 33 }} alt="Allen Mosha" src={Allen} />
               </IconButton>
             </Tooltip>
           </div>
@@ -51,7 +54,7 @@ const Header = ({toggle}) => {
         </Box>
         <Menu
           anchorEl={anchorEl}
-          // id="account-menu"
+          id="account-menu"
           open={open}
           onClose={handleClose}
           onClick={handleClose}
@@ -62,8 +65,8 @@ const Header = ({toggle}) => {
               filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
               mt: 1.5,
               '& .MuiAvatar-root': {
-                width: 29,
-                height: 29,
+                width: 32,
+                height: 32,
                 ml: -0.5,
                 mr: 1,
               },
@@ -72,12 +75,12 @@ const Header = ({toggle}) => {
                 display: 'block',
                 position: 'absolute',
                 top: 0,
-                right: 14,
+                right: 1,
                 width: 10,
                 height: 10,
                 bgcolor: 'background.paper',
                 transform: 'translateY(-50%) rotate(45deg)',
-                zIndex: 0,
+                zIndex: 1,
               },
             },
           }}

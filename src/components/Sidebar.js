@@ -2,14 +2,15 @@ import '../App.css';
 import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import { NavLink } from 'react-router-dom';
+import logo from "../assets/chatIcon2.webp";
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className=' navbnar '>
-        <div className=' containers shadow'>
+        <div className=' containers BoxShadow'>
           <div className='avatar'>
-            <Avatar className='d-flex  me-3' src="../assets/postV.jpg" alt='Allen' />
+            <Avatar className='d-flex  me-3' src={logo} alt='Allen' />
           </div>
           <div className="user d-flex">
             <p className='route navbar-brand '>

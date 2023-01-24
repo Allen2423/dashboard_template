@@ -1,11 +1,9 @@
-import './App.css';
-import Dashboard from './views/Dashboard';
+// import './App.css';
 import Routing from './routers/Index';
 
 function App() {
   return (
     <div className="App">
-        {/* <Dashboard/> */}
        <Routing/> 
     </div>
   );

@@ -4,7 +4,7 @@ import Dashboard from './Dashboard';
 const Contact = () => {
     return (
             <div className='contactContainer'>
-                {/* <h3>Contacts</h3> */}
+                <h3>Contacts</h3>
 
                 <div class="row mt-4">
                     <div class="col-sm-6 ">
