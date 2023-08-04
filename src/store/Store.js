@@ -1,23 +1,25 @@
 import React from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Route, useNavigate } from 'react-router-dom';
+import LandingPage from '../views/LandingPage';
 
 
-const Store = () => {
-    var display =(
-        <MenuIcon fontSize='large'/>
-      );
-    
-      var menuIcon;
-    
-    const menIcon = () => {
-      var screenWidth = window.screen.width;
-      if (screenWidth <= 926){
-        menuIcon = display;
-      }
-      else{
-        menuIcon = '';
-      }
+
+const Store = ({ component: Component, ...rest }) => {
+  
+    const isAuthenticated = true;
+    const navigate = useNavigate();
+
+    if (!isAuthenticated) {
+      navigate('/');
     }
-}
-
+  
+    return (
+      <Route
+        {...rest}
+        render={(props) =>
+          isAuthenticated ? <Component {...props} /> : <LandingPage />
+        }
+      />
+    );
+  };
 export default Store;

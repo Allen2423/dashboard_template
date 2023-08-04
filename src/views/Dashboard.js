@@ -6,12 +6,17 @@ import Footer from './../components/Footer';
 import { Outlet, useLocation } from 'react-router-dom';
 
 
-const Dashboard = (props) => {
-
+const Dashboard = ({logout}) => {
+    
     const toggle = () => {
         var sidebar = document.getElementById('sidebar');
         sidebar.classList.toggle('active');
     }
+  
+  const isLogout=()=>{
+    logout();
+  }
+  
 
   const location = useLocation();
 
@@ -24,10 +29,10 @@ const Dashboard = (props) => {
                 </div>
                 <div className='content' id='content'>
                     <div className='header col-md-12  bg-light' id='header'>
-                        <Header toggle={toggle} />
+                        <Header toggle={toggle} isLogout={isLogout}/>
                     </div>
-                    <div className='urlBar '> {location.pathname} </div>
                     <div className='content_container ' >
+                    <div className='urlBar '> {location.pathname} </div>
                         <Outlet />
                     </div>
                     <div className='footer ' id='footer'>

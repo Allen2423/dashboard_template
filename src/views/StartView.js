@@ -1,203 +1,105 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 import Dashboard from './Dashboard';
+import StreetviewIcon from '@mui/icons-material/Streetview';
+import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
+import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
+import PregnantWomanIcon from '@mui/icons-material/BabyChangingStation';
+import BookOnlineIcon from '@mui/icons-material/BookOnline';
 
 
 const StartView = () => {
-  
+  const cardBod = (
+    <div>
+      <h5 className="card-title">Special title treatment</h5>
+      <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" className="btn btn-primary">Go somewhere</a>
+    </div>
+  );
+
+  const notes = (
+    <div>
+      <h1>This is the ntoes bar
+      </h1>
+    </div>
+  );
+
+  const announcements = (
+    <div>
+      <h1>This is the annoucement bar so take care of annocements</h1>
+    </div>
+  )
+
+  const [content, setContent] = useState(notes);
+
+  const contentFunc1 = () => {
+    setContent(notes);
+    // document.getElementById('notes').style.backgroundColor = "red";
+  }
+
+  const contentFunc = () => {
+    // document.getElementById('event').style.background = "blue";
+    setContent(cardBod);
+  }
+
+  const contentFunc2 = () => {
+    setContent(announcements);
+    // document.getElementById('ann').style.color = "blue";
+  }
+
+  const statisticData = [
+    {id: 1, class: 'text-info', value: '15', icon: <PregnantWomanIcon fontSize='large' className='text-info'/>, description: 'parents'},
+    {id: 2, class: 'text-secondary', value: '13', icon: <BookOnlineIcon fontSize='large' className='text-secondary'/>, description: 'Appointments'},
+    {id: 3, class: 'text-success', value: '15', icon: <HealthAndSafetyIcon fontSize='large' className='text-success'/>, description: 'Childrens'},
+     {id: 4, class: 'text-danger', value: '2', icon:  <MonitorHeartIcon fontSize='large' className='text-danger'/>, description: 'Critical conditions'}
+  ];
+
+  const statisticBox = statisticData.map((value) => {
+    return (
+      <div className="col-xl-3 col-sm-6 col-12 mb-4" key={value.id}>
+        <div className="BoxShadow">
+          <div className="card-body">
+            <div className="d-flex justify-content-between px-md-1">
+              <div>
+                <h3 className={value.class}>{value.value}</h3>
+                <p className="mb-0">{value.description}</p>
+              </div>
+              <div className="align-self-center">
+                {value.icon}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  });
+
+
   return (
     <div>
-
-
-      <div class="container-fluid">
+      <div className="container-fluid">
         <section>
-          <div class="row">
-            <div class="col-12 mt-3 mb-1">
-              <h5 class="text-uppercase">Loan Statistics </h5>
-              {/* <p>Statistics on minimal cards.</p> */}
+          <div className="row">
+            <div className="col-12 mt-3 mb-1">
+              <h5 className="text-uppercase">clinic Statistics</h5>
             </div>
           </div>
-         
-          <div class="row">
-            <div class="col-xl-3 col-sm-6 col-12 mb-4">
-              <div class=" BoxShadow">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between px-md-1">
-                    <div>
-                      <h3 class="text-info">578</h3>
-                      <p class="mb-0">Total Deptors</p>
-                    </div>
-                    <div class="align-self-center">
-                      <i class="fas fa-book-open text-info fa-3x"></i>
-                    </div>
-                  </div>
-                  {/* <div class="px-md-1">
-                    <div class="progress mt-3 mb-1 rounded" style="height: 7px;">
-                      <div class="progress-bar bg-info" role="progressbar" style="width: 80%;" aria-valuenow="80"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div> */}
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12 mb-4">
-              <div class="BoxShadow">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between px-md-1">
-                    <div>
-                      <h3 class="text-danger">135</h3>
-                      <p class="mb-0">Deptors not Returned</p>
-                    </div>
-                    <div class="align-self-center">
-                      <i class="fas fa-map-signs text-danger fa-3x"></i>
-                    </div>
-                  </div>
-                  {/* <div class="px-md-1">
-                    <div class="progress mt-3 mb-1 rounded" style="height: 7px;">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 40%;" aria-valuenow="40"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div> */}
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12 mb-4">
-              <div class="BoxShadow">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between px-md-1">
-                    <div>
-                      <h3 class="text-warning">1 200 000</h3>
-                      <p class="mb-0">Amount Provided</p>
-                    </div>
-                    <div class="align-self-center">
-                      <i class="far fa-comments text-warning fa-3x"></i>
-                    </div>
-                  </div>
-                  {/* <div class="px-md-1">
-                    <div class="progress mt-3 mb-1 rounded" style="height: 7px;">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: 35%;" aria-valuenow="35"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div> */}
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12 mb-4">
-              <div class="BoxShadow">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between px-md-1">
-                    <div>
-                      <h3 class="text-success">870 000</h3>
-                      <p class="mb-0">Amount Returned</p>
-                    </div>
-                    <div class="align-self-center">
-                      <i class="fas fa-mug-hot text-success fa-3x"></i>
-                    </div>
-                  </div>
-                  {/* <div class="px-md-1">
-                    <div class="progress mt-3 mb-1 rounded" style="height: 7px;">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 60%;" aria-valuenow="60"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div> */}
-                </div>
-              </div>
-            </div>
-          </div>
+          <div className="row">
+            {statisticBox} </div>
         </section>
       </div>
-
-
-
-
-      <div class=" mt-4 BoxShadow">
-        <h5 class="card-header">Featured</h5>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-
-      <div class="row mt-4">
-        <div class="col-sm-6 ">
-          <div class=" BoxShadow">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+      <div className='mt-4'>
+        {/* <h6 className="e">Today</h6> */}
+        {/* <div className="  BoxShadow">
+          <div className="card-header">
+            <h5 className='header_text' id='notes' onClick={contentFunc1}>Notes</h5>
+            <h5 className='header_text' id='event' onClick={contentFunc}>Events</h5>
+            <h5 className='header_text' id="ann" onClick={contentFunc2}>Announcements</h5>
           </div>
-        </div>
-        <div class="col-sm-6 ">
-          <div class=" BoxShadow">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
+          <div className="card-body" id='cardBody'>
+            {content} </div>
+        </div> */}
       </div>
-
-
-      <div class="table-responsive BoxShadow  mt-4 ">
-      <table class="table">
-        <thead className='table-dark'>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-
-
-
-      <div class="row mt-4 ">
-        <div class="col-sm-6 ">
-          <div class=" BoxShadow ">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 ">
-          <div class=" BoxShadow">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
     </div>
   );
 }

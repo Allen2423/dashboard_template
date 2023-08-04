@@ -2,7 +2,7 @@ import React from 'react';
 const Footer = () => {
     return  (
     <div>
-        <p> Copyright &copy; 2022 AmoTech All Right Reserved</p>
+        <p> Copyright &copy; 2023 AmoTech All Right Reserved</p>
     </div>
     );
 }

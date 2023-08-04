@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
@@ -16,12 +16,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 // profile picture
 import Allen from '../assets/Allen.webp';
+import AuthContext from '../store/Action';
 
 
 const Header = ({toggle}) => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
+  
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -30,13 +32,26 @@ const Header = ({toggle}) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  
+  const navigate= useNavigate();
+  const { profile } = useContext(AuthContext);
+  // const profile = sessionStorage.getItem('profile');
+  // console.log(profile.username);
+  const logout=()=>{
+    // setIsLogin(false);
+   
+   navigate('/')
+   sessionStorage.setItem('isLogin', false);
+   sessionStorage.clear();
+   window.location.reload();
+   }
 
   return (
     <div className='navbar px-3' >
       <React.Fragment>
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
         <MenuIcon fontSize='large'  onClick={()=>toggle()} />
-          <Typography sx={{ paddingLeft: 3, flexGrow: 1 }} />
+          <Typography sx={{ paddingLeft: 3, flexGrow: 1 }} />{profile.status=='patient' ? (profile.fname+" "+profile.lname): profile.username}
           <div className="user d-flex notifications-popup ">
             <Tooltip title="Account settings">
               <IconButton sx={{ float: 'right' }}
@@ -50,7 +65,7 @@ const Header = ({toggle}) => {
               </IconButton>
             </Tooltip>
           </div>
-
+        
         </Box>
         <Menu
           anchorEl={anchorEl}
@@ -101,7 +116,7 @@ const Header = ({toggle}) => {
             Settings
           </MenuItem>
           <MenuItem>
-          <Link to='/'>
+          <Link onClick={()=>logout()}  >
             <ListItemIcon>
               <Logout fontSize="small" />
             </ListItemIcon>
@@ -111,7 +126,7 @@ const Header = ({toggle}) => {
         </Menu>
       </React.Fragment>
     </div>
-
+  
   )
 }
 

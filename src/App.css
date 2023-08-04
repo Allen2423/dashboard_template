@@ -1,14 +1,47 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-
-.link, .link:hover {
+.link,
+.link:hover {
   text-decoration: none;
   color: rgb(161, 160, 160);
 }
+
+/****************** constants*****************/
+
+/* perfect centering */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* center_column */
+.center_column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Box-shadow */
+.BoxShadow {
+  background-color: white;
+  /* box-shadow: 0px 0.8px 4px 1px rgba(24, 22, 22, 0.14), 0px 0.8px 2px 1px rgba(24, 22, 22, 0.17) !important; */
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 1px, rgba(0, 0, 0, 0.26) 0px 1px 1px; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1.6px 1.6px,
+    rgba(0, 0, 0, 0.26) 0px 1px 3px 0px;
+  /* box-shadow: 0 1px 8px 0.8px rgba(24, 22, 22, 0.14), 0 1px 8px 0.8px rgba(39, 36, 36, 0.14) !important; */
+}
+
+/* .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+} */
+/****************** End of constants*********/
 
 /* .......................................................................
   Sidebar content css
@@ -25,9 +58,10 @@
   color: white;
   display: flex;
   width: 100%;
+  max-height: 73px;
   z-index: 1;
-  background-color: rgb(30, 69, 75);
-  padding: 13px 20px 4px 20px;
+  background-color: #1a2c52;
+  /* padding: 0 20px 4px 0; */
 }
 
 .sidebar .navbnar .containers .user {
@@ -49,7 +83,7 @@
 .sidebarWrapper {
   /* padding: 20px; */
   margin-top: 8%;
-  color: rgb(161, 160, 160);
+  color: rgb(255, 255, 255);
   /* width: auto; */
   /* height: 100vh; */
 }
@@ -70,13 +104,14 @@
   padding-left: 0px;
 }
 
-
 .sidebarListItem {
+  color: white;
   width: 100%;
-  padding: 10px 0 10px 45px;
+  padding: 10px 0 10px 30px;
   cursor: pointer;
   display: flex;
   align-items: center;
+  font-size: 16px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -89,12 +124,9 @@
 }
 
 .sidebarIcon {
-  margin-right: 5px;
+  margin-right: 12px;
   font-size: 20px !important;
 }
-
-
-
 
 /* .......................................................................
   Dashboard css
@@ -105,14 +137,17 @@
   height: 100vh;
   position: relative;
   overflow-y: scroll;
+  /* background-color: #ecececf3; */
 }
 
 /*  remove scrollbar in safari*/
-.superContainer::-webkit-scrollbar, .sidebar_container::-webkit-scrollbar {
+.superContainer::-webkit-scrollbar,
+.sidebar_container::-webkit-scrollbar {
   display: none;
 }
 
-.superContainer, .sidebar_container {
+.superContainer,
+.sidebar_container {
   /* remove scrollbar in firefox */
   scrollbar-width: none;
   /* remove scrollbzr in ms-edge and explorer */
@@ -140,17 +175,21 @@
   top: 0;
   height: fit-content;
   z-index: 1;
-  box-shadow: 1px 0.9px 4px 1px rgba(24, 22, 22, 0.14), 1px 0.8px 2px 1px rgba(24, 22, 22, 0.34) !important;
+  box-shadow: 1px 0.9px 4px 1px rgba(24, 22, 22, 0.14),
+    1px 0.8px 2px 1px rgba(24, 22, 22, 0.34) !important;
 }
 
-.fluid-container .superC .content .urlBar{
+
+
+.fluid-container .superC .content .content_container .urlBar {
   color: black;
   height: 55px;
   display: flex;
   padding-left: 1%;
   font-size: 1.1em;
   align-items: center;
-  background-color: rgb(217, 218, 217);
+  border-bottom: 1px solid silver;
+  /* background-color: rgb(217, 218, 217); */
 }
 
 /* SideBar container css */
@@ -164,32 +203,27 @@
   opacity: 0;
   overflow-y: scroll;
   transition: all 0.5s ease-in-out;
-  /* background-color: rgb(15, 28, 47); */
-  background-color: rgb(30, 69, 75);
+  background-color: #1a2c52;
   /*backdrop-filter: blur(90px);
-  */box-shadow: 0 0.9px 6px 1px rgba(24, 22, 22, 0.14), 0 0.8px 6px 1px rgba(24, 22, 22, 0.34) !important;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
+  */
+  box-shadow: 0 0.9px 6px 1px rgba(24, 22, 22, 0.14),
+    0 0.8px 6px 1px rgba(24, 22, 22, 0.34) !important;
 }
 
 /* Dashboard content container css */
 .fluid-container .superC .content_container {
-  /* color: white; */
   height: auto;
   padding: 1% 3% 3% 3%;
   background-color: whitesmoke;
-  /* transition: all 3s ease; */
 }
 
 /* Footer container css */
 .fluid-container .superC .footer {
-  height: 8vh;
+  width: 100%;
+  height: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: rgb(214, 214, 222); */
 }
 
 .fluid-container .superC .sidebar_container.active {
@@ -197,180 +231,482 @@
   opacity: 1;
 }
 
-.fluid-container .superC .sidebar_container.active~.content {
+.fluid-container .superC .sidebar_container.active ~ .content {
   width: calc(100% - 240px);
 }
 
+.vaccineContainer {
+  width: 100%;
+  height: 100%;
+}
 
-
-/* Box-shadow */
-.BoxShadow {
-  background-color: white;
-  /* box-shadow: 0px 0.8px 4px 1px rgba(24, 22, 22, 0.14), 0px 0.8px 2px 1px rgba(24, 22, 22, 0.17) !important; */
-  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 1px, rgba(0, 0, 0, 0.26) 0px 1px 1px; */
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 1.6px 1.6px, rgba(0, 0, 0, 0.26) 0px 1px 3px 0px;
-  /* box-shadow: 0 1px 8px 0.8px rgba(24, 22, 22, 0.14), 0 1px 8px 0.8px rgba(39, 36, 36, 0.14) !important; */
+.immuneContainer {
+  width: 100%;
+  height: 100%;
 }
 
 
-/* .overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  -webkit-tap-highlight-color: transparent;
-} */
-
-.aboutContainer {
-  width: 100%;
-  height: 100%;
-  /* background-color: darkorange; */
-}
-
-.contactContainer {
-  width: 100%;
-  height: 100%;
-  /* background-color: darkorange; */
-
+/* .......................................................................
+  Dashboard css
+.........................................................................*/
+.container-fluid .row .card-body{
+  overflow: hidden;
 }
 
 /* ..................................................................................
     landing page css
 ..................................................................................... */
 
-.landingContainer{
+.landingContainer {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
 
-.landingContainer .fluid  .header{
-  background-image: url('../public/landingBg.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+/* Style the top navigation bar */
+.landingContainer .mainSection .topnav {
+  overflow: hidden;
 }
 
-.landingContainer .fluid  .header .navbarr{
-  /* color: white; */
-  padding-top: 2%;
-}
-
-.landingContainer .fluid  .header .navbarr .navbar .container-fluid .navbar-brand .brandname{
-  /* color: rgb(18, 21, 146); */
+/* Style the topnav links */
+.landingContainer .mainSection .topnav .brandName {
+  float: left;
+  display: block;
   font-weight: 900;
-  font-size: 24px;
-
-}
-
-.landingContainer .fluid  .header .navbarr .navbar .container-fluid .logo{
-  margin-right: 12px;
-}
-
-.landingContainer .fluid  .header .navbarr .navbar .container-fluid .collapse .navbar-nav .nav-item{
-  /* color: rgb(18, 21, 146); */
-  font-weight: 900;
-}
-
-.landingContainer .fluid  .header .content{
-  height: fit-content;
-}
-
-.landingContainer .fluid  .header .content .description{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5em;
-  /* border: 1px solid green; */
-}
-
-.landingContainer .fluid  .header .content .description .head{
-  color: rgb(28, 68, 74);
-  font-weight: 900;
-  font-size: 4em;
-}
-
-.landingContainer .fluid  .header .content .description .btn{
-  color: white;
-  width: 150px;
-  border-radius: 20px;
-  /* background-color: rgb(46, 107, 116); */
-  margin: 4% 5% 3% 0;
-}
-.btn, button{
-  color: white;
-  background-color: rgb(46, 107, 116);
-}
-
-button:hover{
-  color: white !important;
-  background-color: rgb(40, 95, 103) !important;
-}
-
-.landingContainer .fluid  .header .content .description .btn .link{
-  color: white;
+  color: #f2f2f2;
+  text-align: center;
   text-decoration: none;
+  font-size: x-large;
 }
 
-.landingContainer .fluid  .header .content .pic{
+.landingContainer .infoText {
+  width: 100%;
+  height: auto;
   display: flex;
+  color: white;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  padding: 3%;
+  border-radius: 15px;
+  /* border: 1px solid red; */
 }
 
-/* Enlargement animation */
-@keyframes enlarge{
-  0% {width: 90%; height: 90%;}
-  50% {width: 75%; height: 75%;}
-  100% {width: 90%; height: 90%;}
+.landingContainer .infoText .text {
+  text-align: center;
 }
 
-.landingContainer .fluid  .header .content .pic .image{
-  width: 75%;
-  height: 75%;
-  animation-name: enlarge;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-
+.landingContainer .infoText .text,
+.btn-login {
+  margin-top: 35px;
 }
 
-.landingContainer .fluid .Description{
-  height: fit-content;
-  padding-top: 1%;
-  background-color: whitesmoke;
-}
-
-.landingContainer .fluid .About{
-  min-height: 30em ;
-  padding-top: 1%;
-  display: flex;
-  /* flex-direction: column; */
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient( rgba(0, 0, 0, 0.33) ,rgba(0, 0, 0, 0.467)), url('../public/landingBg3.jpg');
+.landingContainer .mainSection {
+  width: 100%;
+  height: 92%;
+  background-image: linear-gradient(to bottom right, #021d43f3, #051c42b2),
+    url("../src/assets/clinic3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  /* backdrop-filter: blur(90px); */
 }
 
-.landingContainer .fluid .Contacts{
-  height: fit-content;
-  padding-top: 1%;
- background-color: whitesmoke;
+.landingContainer .mainSection .mainSection_content {
+  display: flex;
+  height: 87%;
+  justify-content: center;
+  align-items: center;
 }
 
-.landingContainer .fluid .footer{
+.landingContainer .footer {
   color: white;
-  height: 20vh;
+  width: 100%;
+  height: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(37, 77, 111, 0.778);
+  text-align: center;
+  background-color: #0d1f39;
 }
 
+/* ..................................................................................
+    patient page css
+..................................................................................... */
+.patientContainer .row .tTitle {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.patientContainer .row .tTitle .table_title {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.patientContainer .row .vaccineForm {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.patientContainer .row .vaccineForm .vForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 45px;
+  height: 100%;
+  text-align: center;
+}
+
+.patientContainer .row .vaccineForm .modal-header {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  padding: 2px;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.patientContainer .row .vaccineForm .modal-header .modal-title {
+  flex-grow: 1;
+  font-weight: bold;
+  text-align: center;
+}
+
+.patientContainer .row .vaccineForm .modal-header .closeBtn {
+  margin-right: 5px;
+}
+
+/* ..................................................................................
+    childInfo page css
+..................................................................................... */
+/* .childInfo .row {
+  border-radius: 10px;
+} */
+.childInfo .row .imTable_title {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  /* border-radius: 10px 10px 0 0; */
+  background-color: #d5d8db;
+}
+
+.childInfo .row .secondTable input[type="text"],
+.secondTable input[type="date"] {
+  border: none;
+  border-bottom: 2px dotted #021d43f3;
+}
+
+.childInfo .row .select {
+  display: grid;
+  justify-content: end;
+}
+
+
+
+/* ..................................................................................
+    childInfo page css
+..................................................................................... */
+/* .childInfo .row {
+  border-radius: 10px;
+} */
+.childCardView .row .imTable_title {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  /* border-radius: 10px 10px 0 0; */
+  background-color: #d5d8db;
+}
+
+
+.childCardView .row .select {
+  display: grid;
+  justify-content: end;
+}
+
+
+/* ..................................................................................
+    vaccination page css
+..................................................................................... */
+.vaccineContainer .row .tTitle {
+  /* height: 55px; */
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  /* background-color: #d3d4d6; */
+}
+
+.vaccineContainer .row .tTitle .table_title {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.vaccineContainer .row .vaccineForm {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.vaccineContainer .row .vaccineForm .vForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 45px;
+  height: 100%;
+  text-align: center;
+}
+
+.vaccineContainer .row .vaccineForm .vForm .select {
+  width: inherit;
+  border: none;
+  outline: none;
+}
+
+.vaccineContainer .row .vaccineForm .vForm .select {
+  text-align: start;
+}
+
+.vaccineContainer .row .vaccineForm .modal-header {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  padding: 2px;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.vaccineContainer .row .vaccineForm .modal-header .modal-title {
+  flex-grow: 1;
+  font-weight: bold;
+  text-align: center;
+}
+
+.vaccineContainer .row .vaccineForm .modal-header .closeBtn {
+  margin-right: 5px;
+}
+
+.vaccineContainer .row .imTable_title {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: #d5d8db;
+}
+
+/* ..................................................................................
+    parent page css
+..................................................................................... */
+.parentInformation .row .tTitle {
+  /* height: 55px; */
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  /* background-color: #d3d4d6; */
+}
+
+.parentInformation .row .tTitle .table_title {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.parentInformation .row .vaccineForm {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.parentInformation .row .vaccineForm .vForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 45px;
+  height: 100%;
+  text-align: center;
+}
+
+.parentInformation .row .select {
+  display: grid;
+  justify-content: end;
+}
+
+.parentInformation .row .vaccineForm .modal-header {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  padding: 2px;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.parentInformation .row .vaccineForm .modal-header .modal-title {
+  flex-grow: 1;
+  font-weight: bold;
+  text-align: center;
+}
+
+.parentInformation .row .vaccineForm .modal-header .closeBtn {
+  margin-right: 5px;
+}
+
+.parentInformation .row .imTable_title {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: #d5d8db;
+}
+
+/* ..................................................................................
+    childform page css
+..................................................................................... */
+.childform .row .tTitle {
+  /* height: 55px; */
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  /* background-color: #d3d4d6; */
+}
+
+.childform .row .tTitle .table_title {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.childform .row .vaccineForm {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.childform .row .vaccineForm .vForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 45px;
+  height: 100%;
+  text-align: center;
+}
+
+.childform .row .select {
+  display: grid;
+  justify-content: end;
+}
+
+.childform .row .vaccineForm .modal-header {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  padding: 2px;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.childform .row .vaccineForm .modal-header .modal-title {
+  flex-grow: 1;
+  font-weight: bold;
+  text-align: center;
+}
+
+.childform .row .vaccineForm .modal-header .closeBtn {
+  margin-right: 5px;
+}
+
+.childform .row .imTable_title {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: #d5d8db;
+}
+
+
+/* ..................................................................................
+    appointment page css
+..................................................................................... */
+.appointment .row .tTitle {
+  /* height: 55px; */
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  /* background-color: #d3d4d6; */
+}
+
+.appointment .row .tTitle .table_title {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.appointment .row .vaccineForm {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.appointment .row .vaccineForm .vForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 45px;
+  height: 100%;
+  text-align: center;
+}
+
+.appointment .row .select {
+  display: grid;
+  justify-content: end;
+}
+
+.appointment .row .vaccineForm .modal-header {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  padding: 2px;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.appointment .row .vaccineForm .modal-header .modal-title {
+  flex-grow: 1;
+  font-weight: bold;
+  text-align: center;
+}
+
+.appointment .row .vaccineForm .modal-header .closeBtn {
+  margin-right: 5px;
+}
+
+.appointment .row .imTable_title {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: #d5d8db;
+}
+
+
+/* ..................................................................................
+    Immunization page css
+..................................................................................... */
+/* .immuneContainer .row {
+  border-radius: 10px;
+} */
+.immuneContainer .row .imTable_title {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: #d5d8db;
+}
+
+.immuneContainer .row .select {
+  display: grid;
+  justify-content: end;
+}
 
 /* .............................................................................................
  Responsive css 
 ................................................................................................*/
 @media only screen and (max-width: 767px) {
-
   .fluid-container .superC .content .content_container {
     padding-top: 1%;
   }
@@ -390,36 +726,38 @@ button:hover{
     opacity: 0;
   }
 
-  .fluid-container .superC .sidebar_container.active~.content {
+  .fluid-container .superC .sidebar_container.active ~ .content {
     width: calc(100% - 0px);
     overflow-x: hidden;
   }
 
-  .fluid-container .superC .content .content_container .urlBar{
-    height: 199px;
+  .fluid-container .superC .content .content_container .urlBar {
+    height: 55px;
   }
 
-  .landingContainer .fluid  .header .content .description .head{
-    font-size: 2.5em;
+  .landingContainer .fluid .infoText {
+    width: 92%;
   }
 
-  .landingContainer .fluid  .header{
-    background-size: contain;
+  .landingContainer .fluid .infoText .text,
+  .btn-login {
+    margin-top: 22px;
   }
 
-  .landingContainer .fluid  .header .content .pic {
-    padding: 5%;
+  .landingContainer .footer {
+    height: 13%;
   }
 
-  .landingContainer .fluid  .header .content .pic .image{
-    width: 100%;
-    height: 100%;
-    animation-name: none;
+  .vaccineContainer .row .vaccineForm .vForm {
+    padding: 0 35px;
+  }
+
+  .sidebarListItem {
+    padding: 10px 0 10px 25px;
   }
 }
 
 @media only screen and (min-width: 767px) and (max-width: 1200px) {
-
   .fluid-container .superC .sidebar_container {
     width: 240px;
     opacity: 1;
@@ -439,26 +777,35 @@ button:hover{
     opacity: 0;
   }
 
-  .fluid-container .superC .sidebar_container.active~.content {
+  .fluid-container .superC .sidebar_container.active ~ .content {
     width: calc(100% - 0px);
   }
 
-  .landingContainer .fluid  .header .content .description .head{
-    font-weight: 900;
-    font-size: 3em;
+  .landingContainer .fluid .infoText {
+    width: 92%;
   }
 
-  .landingContainer .fluid  .header{
-    background-size: contain;
+  .landingContainer .fluid .infoText .text,
+  .btn-login {
+    margin-top: 25px;
   }
-  
-.landingContainer .fluid  .header .content .pic {
-  padding: 4%;
 }
 
-.landingContainer .fluid  .header .content .pic .image{
-  width: 100%;
-  height: 100%;
-  animation-name: none;
+/* startview css */
+/* .mt-4 .card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
+
+.mt-4 .card-header .header_text {
+  margin-right: 12px;
 }
+
+.mt-4 .card-header .header_text:active {
+  color: blue;
+} */
+
+/* .colorActive{
+  border-bottom: 1px solid blue;
+} */
